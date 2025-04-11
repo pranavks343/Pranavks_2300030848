@@ -20,10 +20,11 @@ const FeedbackForm = () => {
     setLoading(true);
     setMessage('');
     try {
-      const response = await axios.post(
-        "http://localhost:6161/api/feedback/submit-feedback",
-        formData
-      );
+     const response = await axios.post(
+  "https://pranavks-2300030848.onrender.com/api/feedback/submit-feedback",
+  formData
+);
+
       setMessage(response.data.message || 'Feedback submitted successfully!');
       setFormData({ name: '', email: '', feedback: '' });
     } catch (error) {
