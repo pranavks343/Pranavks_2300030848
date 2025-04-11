@@ -8,7 +8,8 @@ function OrderList() {
   const [grade, setGrade] = useState('');
   const [editingId, setEditingId] = useState(null);
 
-  const API_URL = 'http://localhost:5555/api/orders';
+  const API_URL = 'https://pranavks-2300030848.onrender.com/api/orders';
+
 
   useEffect(() => {
     fetchOrders();
