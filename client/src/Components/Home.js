@@ -1,51 +1,373 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  Box,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  Container,
+  CardContent,
+  CardActions,
+  Divider,
+  Chip,
+  Stack
+} from '@mui/material';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import PriceCheckIcon from '@mui/icons-material/PriceCheck';
+import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
+import ShieldIcon from '@mui/icons-material/Shield';
 
-const Home = () => {
+const NewHome = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-pink-100 via-blue-100 to-purple-100">
+    <Box sx={{ minHeight: '100vh', bgcolor: '#f8fafc', color: '#1e293b' }}>
       {/* Hero Section */}
-      <header className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white text-center py-16 shadow-lg">
-        <h1 className="text-5xl font-extrabold tracking-tight drop-shadow-md">
-          Welcome to <span className="bg-white text-purple-600 px-3 rounded-full">Doorstep</span>
-        </h1>
-        <p className="mt-4 text-xl font-light">Bringing services and products to your doorstep</p>
-        <Link
-          to="/services"
-          className="mt-6 inline-block bg-white text-purple-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-purple-100 transition"
-        >
-          Explore Services
-        </Link>
-      </header>
+      <Box
+        sx={{
+          textAlign: 'center',
+          py: 15,
+          background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+          color: 'white',
+          position: 'relative',
+          overflow: 'hidden',
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(circle at 75% 30%, rgba(255,255,255,0.1) 0%, transparent 60%)',
+          }
+        }}
+      >
+        <Container maxWidth="md">
+          <Chip 
+            label="NEW" 
+            color="secondary" 
+            size="small" 
+            sx={{ mb: 2, color: 'white', fontWeight: 'bold' }} 
+          />
+          <Typography variant="h2" fontWeight="bold" sx={{ mb: 3 }}>
+            Elevate Your Experience with <Box component="span" sx={{ color: '#fef08a' }}>SwiftHome</Box>
+          </Typography>
+          <Typography variant="h5" sx={{ fontWeight: 300, mb: 4 }}>
+            Premium services delivered with speed, care, and precision right to your home
+          </Typography>
+          <Stack direction="row" spacing={2} justifyContent="center">
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                bgcolor: '#fef08a',
+                color: '#1e293b',
+                '&:hover': { bgcolor: '#fde047' },
+                fontWeight: 'bold',
+                px: 4,
+                py: 1.5
+              }}
+              component={RouterLink}
+              to="/services"
+              startIcon={<RocketLaunchIcon />}
+            >
+              Discover Services
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              sx={{
+                borderColor: 'white',
+                color: 'white',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.1)' },
+                px: 4,
+                py: 1.5
+              }}
+              component={RouterLink}
+              to="/about"
+            >
+              Learn More
+            </Button>
+          </Stack>
+        </Container>
+      </Box>
 
       {/* Features Section */}
-      <section className="py-16 w-11/12 max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:scale-105 transition-transform duration-300">
-          <h2 className="text-3xl font-bold text-purple-600">⚡ Fast Delivery</h2>
-          <p className="mt-3 text-gray-600">Get your orders delivered in no time.</p>
-        </div>
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:scale-105 transition-transform duration-300">
-          <h2 className="text-3xl font-bold text-pink-600">💰 Best Prices</h2>
-          <p className="mt-3 text-gray-600">Affordable rates for all services and products.</p>
-        </div>
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:scale-105 transition-transform duration-300">
-          <h2 className="text-3xl font-bold text-blue-600">🕐 24/7 Support</h2>
-          <p className="mt-3 text-gray-600">We are always here to help you, anytime.</p>
-        </div>
-      </section>
+      <Container sx={{ py: 12, position: 'relative' }}>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="overline" color="primary" sx={{ fontWeight: 'bold', letterSpacing: 1 }}>
+            WHY CHOOSE US
+          </Typography>
+          <Typography variant="h3" sx={{ fontWeight: 'bold', mt: 1 }}>
+            Unmatched Service Excellence
+          </Typography>
+        </Box>
+
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Card 
+              sx={{ 
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid',
+                borderColor: 'divider',
+                '&:hover': {
+                  boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
+                  transform: 'translateY(-4px)',
+                  transition: 'all 0.3s ease'
+                }
+              }}
+            >
+              <CardContent sx={{ flexGrow: 1, textAlign: 'center', pt: 5 }}>
+                <Box sx={{
+                  bgcolor: '#e0f2fe',
+                  color: '#0369a1',
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                  mb: 3
+                }}>
+                  <LocalShippingIcon sx={{ fontSize: 40 }} />
+                </Box>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 'medium' }}>
+                  Lightning Fast Delivery
+                </Typography>
+                <Typography color="text.secondary">
+                  Our hyper-efficient delivery network ensures your order arrives in record time, often within hours.
+                </Typography>
+              </CardContent>
+              <Divider />
+              <CardActions sx={{ justifyContent: 'center', py: 2 }}>
+                <Button 
+                  size="small" 
+                  color="primary"
+                  endIcon={<StarBorderPurple500Icon />}
+                >
+                  Learn more
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <Card 
+              sx={{ 
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid',
+                borderColor: 'divider',
+                '&:hover': {
+                  boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
+                  transform: 'translateY(-4px)',
+                  transition: 'all 0.3s ease'
+                }
+              }}
+            >
+              <CardContent sx={{ flexGrow: 1, textAlign: 'center', pt: 5 }}>
+                <Box sx={{
+                  bgcolor: '#dcfce7',
+                  color: '#15803d',
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                  mb: 3
+                }}>
+                  <PriceCheckIcon sx={{ fontSize: 40 }} />
+                </Box>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 'medium' }}>
+                  Price Match Guarantee
+                </Typography>
+                <Typography color="text.secondary">
+                  Found a better price elsewhere? We'll match it plus give you 5% off the difference.
+                </Typography>
+              </CardContent>
+              <Divider />
+              <CardActions sx={{ justifyContent: 'center', py: 2 }}>
+                <Button 
+                  size="small" 
+                  color="success"
+                  endIcon={<StarBorderPurple500Icon />}
+                >
+                  Learn more
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <Card 
+              sx={{ 
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '1px solid',
+                borderColor: 'divider',
+                '&:hover': {
+                  boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)',
+                  transform: 'translateY(-4px)',
+                  transition: 'all 0.3s ease'
+                }
+              }}
+            >
+              <CardContent sx={{ flexGrow: 1, textAlign: 'center', pt: 5 }}>
+                <Box sx={{
+                  bgcolor: '#fae8ff',
+                  color: '#a21caf',
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mx: 'auto',
+                  mb: 3
+                }}>
+                  <HeadsetMicIcon sx={{ fontSize: 40 }} />
+                </Box>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 'medium' }}>
+                  Premium Support
+                </Typography>
+                <Typography color="text.secondary">
+                  Dedicated concierge service with real humans available 24/7 to handle any request or concern.
+                </Typography>
+              </CardContent>
+              <Divider />
+              <CardActions sx={{ justifyContent: 'center', py: 2 }}>
+                <Button 
+                  size="small" 
+                  color="secondary"
+                  endIcon={<StarBorderPurple500Icon />}
+                >
+                  Learn more
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* Value Proposition */}
+      <Box sx={{ bgcolor: '#f1f5f9', py: 10 }}>
+        <Container maxWidth="lg">
+          <Grid container alignItems="center" spacing={6}>
+            <Grid item xs={12} md={6}>
+              <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 3 }}>
+                More Than Just Delivery
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 3, fontSize: '1.1rem' }}>
+                We're redefining convenience with white-glove service standards and innovative solutions tailored to modern lifestyles.
+              </Typography>
+              <Stack spacing={2}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <ShieldIcon color="primary" sx={{ mr: 2 }} />
+                  <Typography>100% satisfaction guarantee</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <ShieldIcon color="primary" sx={{ mr: 2 }} />
+                  <Typography>Eco-friendly packaging options</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <ShieldIcon color="primary" sx={{ mr: 2 }} />
+                  <Typography>VIP membership benefits</Typography>
+                </Box>
+              </Stack>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{ mt: 4, px: 5, py: 1.5, fontWeight: 'bold' }}
+                component={RouterLink}
+                to="/membership"
+              >
+                Explore Benefits
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Box sx={{
+                bgcolor: 'white',
+                borderRadius: 2,
+                p: 3,
+                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
+                position: 'relative',
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: -16,
+                  left: -16,
+                  right: 16,
+                  bottom: 16,
+                  border: '2px solid',
+                  borderColor: 'primary.main',
+                  borderRadius: 2,
+                  zIndex: -1
+                }
+              }}>
+                <Box sx={{
+                  width: '100%',
+                  height: 300,
+                  bgcolor: '#e2e8f0',
+                  borderRadius: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#64748b'
+                }}>
+                  <Typography>Service Showcase</Typography>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
       {/* Call to Action */}
-      <footer className="w-full text-center py-10 bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-auto">
-        <h3 className="text-2xl font-semibold">Start your journey with Doorstep today!</h3>
-        <Link
-          to="/register"
-          className="mt-5 inline-block bg-blue-500 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-600 transition shadow-lg"
-        >
-          Sign Up Now
-        </Link>
-      </footer>
-    </div>
+      <Box sx={{ 
+        textAlign: 'center', 
+        py: 10,
+        background: 'linear-gradient(to right, #4f46e5, #7c3aed)',
+        color: 'white'
+      }}>
+        <Container maxWidth="md">
+          <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 3 }}>
+            Ready to Experience the Future of Home Services?
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 5, fontWeight: 300 }}>
+            Join thousands of satisfied customers enjoying premium convenience.
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            sx={{
+              px: 6,
+              py: 1.5,
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.2)'
+              }
+            }}
+            component={RouterLink}
+            to="/register"
+            endIcon={<RocketLaunchIcon />}
+          >
+            Get Started Now
+          </Button>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
-export default Home;
+export default NewHome;
