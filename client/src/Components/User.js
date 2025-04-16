@@ -7,7 +7,7 @@ const User = ({ username, role }) => {
         <h3 className="text-xl font-bold text-indigo-700 mb-2">
           Welcome <span className="text-purple-700">{username}</span>
         </h3>
-        <p className="text-gray-700">Logged in as 2300030848 KONDAPI SRI PRANAV<strong>{role}</strong></p>
+        <p className="text-gray-700">Logged in as 2300031365 KILIVETI SUHRUD AMRU<strong>{role}</strong></p>
       </div>
     </div>
   );
